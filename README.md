@@ -4,9 +4,13 @@ A collection of some of the best free lists and walkthroughs on the web to learn
 
 Pull requests and support are highly welcome. If you’d like to see your content here, reach out.
 
-[![Website](https://img.shields.io/badge/website-visit-brightgreen)](https://fiftysix.xyz) [![Twitter Follow](https://img.shields.io/twitter/follow/fiftysixcrypto?style=social)](https://twitter.com/fiftysixcrypto) [![Email](https://img.shields.io/badge/email-contact-brightgreen)](mailto:0xfiftysix@gmail.com)
+---
 
-### Mastering Ethereum - Andreas M. Antonopoulos, Gavin Wood
+[![Website](https://img.shields.io/badge/website-visit-brightgreen)](https://fiftysix.xyz) [![Twitter Follow](https://img.shields.io/twitter/follow/fiftysixcrypto?style=social)](https://twitter.com/fiftysixcrypto) [![Email](https://img.shields.io/badge/email-contact-blueviolet)](mailto:0xfiftysix@gmail.com)
+
+---
+
+## Mastering Ethereum - Andreas M. Antonopoulos, Gavin Wood
 
 The go-to book for anyone new to Ethereum. Completely free, available online.
 
@@ -14,7 +18,7 @@ Mastering Ethereum is a book for developers, offering a guide to the operation a
 
 https://github.com/ethereumbook/ethereumbook
 
-### OfficerCia
+## OfficerCia
 
 Officer Cia has put out a tremendous amount of content and lists detailing every aspect of interacting with blockchain, from developing to OpSec. A list of his articles can be found here: https://officercia.mirror.xyz/Uc1sf64yUCb0uo1DxR_nuif5EmMPs-RAshDyoAGEZZY
 
@@ -42,7 +46,7 @@ Curated list of tools and resources for conducting on-chain investigations in bl
 
 https://github.com/OffcierCia/On-Chain-Investigations-Tools-List
 
-### Learn Smart Contract Development
+## Learn Smart Contract Development
 
 #### Awesome Solidity — bkrem
 
@@ -86,7 +90,7 @@ Cheatsheet for Solidity that you can use to write Smart Contracts for Ethereum b
 
 https://github.com/manojpramesh/solidity-cheatsheet
 
-### General Information
+## General Information
 
 #### devpill.me — dcbuild3r
 
@@ -130,7 +134,7 @@ Curated list of resources covering various aspects of decentralized finance (DeF
 
 https://github.com/ong/awesome-decentralized-finance
 
-### Advanced Developer — Smart Contract Templates
+## Advanced Developer — Smart Contract Templates
 
 #### (Backend) Hardhat-based Template for Developing Solidity Smart Contracts — PaulRBerg
 
@@ -144,7 +148,7 @@ Starting point for Ethereum decentralized application (dApp) development with Re
 
 https://github.com/scaffold-eth/scaffold-eth-2
 
-### Advanced Developer — Smart Contract Development
+## Advanced Developer — Smart Contract Development
 
 #### (Backend) OpenZeppelin: A library for secure smart contract development — OpenZeppelin
 
@@ -177,7 +181,7 @@ List of resources and techniques for optimizing gas usage in Solidity smart cont
 
 https://github.com/0xisk/awesome-solidity-gas-optimization
 
-### Cryptoeconomics
+## Cryptoeconomics
 
 #### Awesome Cryptoeconomics — jpantunes
 
@@ -185,7 +189,7 @@ List of resources covering various aspects of cryptoeconomics, including researc
 
 https://github.com/jpantunes/awesome-cryptoeconomics
 
-### Crypto Philosophy
+## Crypto Philosophy
 
 #### Making Sense of Web3 & Crypto, Constructive Analysis of Key Ecosystem Claims — life-itself
 
