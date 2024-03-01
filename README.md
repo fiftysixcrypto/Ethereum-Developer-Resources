@@ -10,6 +10,43 @@ Pull requests and support are highly welcome. If you’d like to see your conten
 
 ---
 
+# Contracts
+
+```
+src
+   access
+      ├─ Governable — "X"
+   tokens
+      ├─ ERC20 — "X"
+      ├─ ERC721 — "X"
+      ├─ ERC721A — "Simple ERC 721A"
+      ├─ ERC2981 — "Simple ERC2981 NFT Royalty Standard implementation"
+      ├─ ERC1155 — "X"
+      ├─ ERC6909 — "Simple EIP-6909 minimal multi-token implementation"
+      DN404
+      ERC918
+      ERC721(c)?
+```
+
+### Setup
+Install packages
+
+   ```
+   $ npm i
+   ```
+
+### Compile Contracts
+```
+$ npm run compile
+```
+
+### Test
+```
+$ npm run test
+```
+
+# Learning Resources
+
 ## Mastering Ethereum - Andreas M. Antonopoulos, Gavin Wood
 
 The go-to book for anyone new to Ethereum. Completely free, available online.

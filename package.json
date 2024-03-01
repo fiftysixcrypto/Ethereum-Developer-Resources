@@ -1,0 +1,31 @@
+{
+  "name": "ethereum-developer-resources",
+  "version": "1.0.0",
+  "description": "A repo holding beginner contracts for Ethereum development",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.ts",
+    "clean": "hardhat clean",
+    "typechain": "hardhat typechain"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiftysixcrypto/Ethereum-Developer-Resources.git"
+  },
+  "author": "Fiftysix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fiftysixcrypto/Ethereum-Developer-Resources/issues"
+  },
+  "homepage": "https://github.com/fiftysixcrypto/Ethereum-Developer-Resources#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.24",
+    "hardhat": "^2.20.1"
+  }
+}
