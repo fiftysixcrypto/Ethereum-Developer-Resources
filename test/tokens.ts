@@ -3,13 +3,11 @@ import { ethers } from 'hardhat'
 import { SignerWithAddress } from '@nomicfoundation/hardhat-ethers/signers'
 import { loadFixture } from '@nomicfoundation/hardhat-network-helpers'
 
-import { FiftysixERC1155, FiftysixERC20, FiftysixERC721 } from '../typechain-types'
+import { FiftysixERC1155, FiftysixERC20, FiftysixERC721, FiftysixDN404 } from '../typechain-types'
 
 import { coreSetup, deploy } from './fixture'
 
-const ZERO_ADDRESS = ethers.ZeroAddress
-
-describe('Token tests', function () {
+describe('Simple Token tests (ERC-20, ERC-721, ERC-1155)', function () {
   let owner: SignerWithAddress, user1: SignerWithAddress, user2: SignerWithAddress
   const baseURI = 'https://fiftysix.xyz/metadata'
 
@@ -139,6 +137,117 @@ describe('Token tests', function () {
   
       expect(balances[0].toString()).to.equal(amount.toString())
       expect(balances[1].toString()).to.equal('0')
+    })
+  })
+})
+
+describe("DN404 -- Half ERC-20/ERC-721", function () {
+  let fiftysixDN404: FiftysixDN404
+  let owner: any, addr1: any, addr2: any
+
+  beforeEach(async function () {
+    const [deployer, user1, user2] = await ethers.getSigners()
+    owner = deployer
+    addr1 = user1
+    addr2 = user2
+
+    const FiftysixDN404 = await ethers.getContractFactory("FiftysixDN404", owner)
+    fiftysixDN404 = await FiftysixDN404.deploy("FiftysixDN404Token", "SDN404", 1000000)
+  })
+
+  describe("Deployment", function () {
+    it("Should set the right owner", async function () {
+      expect(await fiftysixDN404.governor()).to.equal(owner.address)
+    })
+
+    it("Should assign the total supply of tokens to the owner", async function () {
+      const ownerBalance = await fiftysixDN404.balanceOf(owner.address)
+      expect(await fiftysixDN404.totalSupply()).to.equal(ownerBalance)
+    })
+  })
+
+  describe("Transactions", function () {
+    it("Should transfer tokens between accounts", async function () {
+      await fiftysixDN404.connect(owner).transfer(addr1.address, 50)
+      const addr1Balance = await fiftysixDN404.balanceOf(addr1.address)
+      expect(addr1Balance).to.equal(50)
+    })
+
+    it("Should fail if sender doesn't have enough tokens", async function () {
+      const initialOwnerBalance = await fiftysixDN404.balanceOf(owner.address)
+
+      // Try to send 1 token from addr1 (0 tokens) to owner (1000000 tokens)
+      await expect(fiftysixDN404.connect(addr1).transfer(owner.address, 1)).to.be.reverted
+
+      expect(await fiftysixDN404.balanceOf(owner.address)).to.equal(initialOwnerBalance)
+    })
+
+    it("Should update balances after transfers", async function () {
+      await fiftysixDN404.connect(owner).transfer(addr1.address, 100)
+      await fiftysixDN404.connect(owner).transfer(addr2.address, 50)
+
+      const addr1Balance = await fiftysixDN404.balanceOf(addr1.address)
+      expect(addr1Balance).to.equal(100)
+
+      const addr2Balance = await fiftysixDN404.balanceOf(addr2.address)
+      expect(addr2Balance).to.equal(50)
+    })
+  })
+
+  describe("Governance", function () {
+    it("Should only allow the governor to call restricted functions", async function () {
+      // Attempt to call a governor-restricted function from another account should be reverted
+      await expect(fiftysixDN404.connect(addr1).mint(addr1.address, 1000)).to.be.revertedWith("not governor")
+
+      await expect(fiftysixDN404.connect(owner).mint(addr1.address, 1000)).to.not.be.reverted
+      expect(await fiftysixDN404.balanceOf(addr1.address)).to.equal(1000)
+    })
+
+    it("Should allow governor to withdraw contract balance", async function () {
+      const sendValue = ethers.parseEther("1")
+      await owner.sendTransaction({ to: fiftysixDN404.target, value: sendValue })
+
+      expect(await ethers.provider.getBalance(fiftysixDN404.target)).to.equal(sendValue)
+
+      await fiftysixDN404.connect(owner).withdraw()
+
+      expect(await ethers.provider.getBalance(fiftysixDN404.target)).to.equal(0)
+    })
+  })
+
+  describe("Minting", function () {
+    it("Should mint tokens upon receiving ETH", async function () {
+      const sendValue = ethers.parseEther("1")
+      const expectedMintAmount = "1000000000000000000000" // Assuming 1000 tokens per ETH
+
+      await addr1.sendTransaction({
+        to: fiftysixDN404.target,
+        value: sendValue,
+      })
+
+      expect(await fiftysixDN404.balanceOf(addr1.address)).to.equal(expectedMintAmount)
+    })
+
+    it("Should not mint tokens beyond the maximum supply", async function () {
+      const sendValue = ethers.parseEther("1000")
+
+      await expect(
+        addr1.sendTransaction({
+          to: fiftysixDN404.target,
+          value: sendValue,
+        })
+      ).to.be.reverted
+    })
+  })
+
+  describe("Metadata", function () {
+    it("Should correctly set and affect token URI", async function () {
+      const baseURI = "https://fiftysix.xyz/metadata/"
+      await fiftysixDN404.setBaseURI(baseURI)
+      
+      await fiftysixDN404.mint(owner.address, ethers.parseEther("1"))
+
+      expect(await fiftysixDN404.tokenURI(1)).to.equal(baseURI + "1")
     })
   })
 })

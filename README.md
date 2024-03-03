@@ -1,8 +1,8 @@
 # Ethereum Developer Resources
 
-A collection of some of the best free lists and walkthroughs on the web to learn how to become a full-fledged Ethereum/Solidity developer.
+A collection of Etherem/Solidity developer focused smart contracts, information, learning resources, and more.
 
-Pull requests and support are highly welcome. If you’d like to see your content here, reach out.
+Pull requests and support are highly welcome. If you’d like to see your content/contracts here, reach out.
 
 ---
 
@@ -10,30 +10,39 @@ Pull requests and support are highly welcome. If you’d like to see your conten
 
 ---
 
-# Contracts
+## Contracts
 
 ```
 src
    access
-      ├─ Governable — "X"
+      ├─ Governable — Alternative to Ownable, for owner contract access
+
    tokens
-      ├─ ERC20 — "X"
-      ├─ ERC721 — "X"
-      ├─ ERC721A — "Simple ERC 721A"
-      ├─ ERC2981 — "Simple ERC2981 NFT Royalty Standard implementation"
-      ├─ ERC1155 — "X"
-      ├─ ERC6909 — "Simple EIP-6909 minimal multi-token implementation"
-      DN404
-      ERC918
-      ERC721(c)?
+      other
+         ├─ ERC165 — Determines what interfaces the contract supports
+         ├─ ERC2981 — Optional, non-committal NFT Royalty standard
+
+      ├─ DN404 — Dual ERC-20/ERC-721 token (pulled from Vectorized)
+      ├─ DN404Mirror — Required alongside DN404 (pulled from Vectorized)
+      ├─ ERC721A — A cheaper-mint ERC-721 NFT (pulled from chiru-labs)
+      ├─ ERC6909 — Implementation of ERC-6909 (pulled from jtriley-eth)
+
+   ├─ FiftysixDN404 — An example cross ERC-20/ERC-721 token
+   ├─ FiftysixERC20 — An example fungible ERC-20 token
+   ├─ FiftysixERC721 — An example non-fungible ERC-721 token
+   ├─ FiftysixERC1155 — An example semi-fungible ERC-1155 token
+   ├─ FiftysixERC6909 — A (newer) example semi-fungible ERC-6909 token
+   ├─ FiftysixERC918 — TBD
+
 ```
 
 ### Setup
+
 Install packages
 
-   ```
-   $ npm i
-   ```
+```
+$ npm i
+```
 
 ### Compile Contracts
 ```
@@ -46,6 +55,8 @@ $ npm run test
 ```
 
 # Learning Resources
+
+A collection of some of the best free lists and walkthroughs on the web to learn how to become a full-fledged Ethereum/Solidity developer.
 
 ## Mastering Ethereum - Andreas M. Antonopoulos, Gavin Wood
 

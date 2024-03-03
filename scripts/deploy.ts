@@ -12,6 +12,15 @@ async function main() {
   const FiftysixERC1155 = await ethers.getContractFactory("FiftysixERC1155")
   const fiftysixERC1155 = await FiftysixERC1155.deploy()
   console.log("FiftysixERC1155 deployed to:", fiftysixERC1155.target)
+
+  const FiftysixDN404 = await ethers.getContractFactory("FiftysixDN404")
+  const fiftysixDN404 = await FiftysixDN404.deploy(
+    "Fiftysix", // name
+    "56", // symbol
+    "1000000", // initialTokenSupply
+  )
+  
+  console.log("FiftysixDN404 deployed to:", fiftysixDN404.target)
 }
 
 main().catch((error) => {
