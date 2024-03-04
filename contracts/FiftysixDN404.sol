@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.24;
 
 import "./tokens/DN404.sol";
 import "./tokens/DN404Mirror.sol";

@@ -2,7 +2,9 @@ import { ethers } from "hardhat"
 
 async function main() {
   const FiftysixERC20 = await ethers.getContractFactory("FiftysixERC20")
-  const fiftysixERC20 = await FiftysixERC20.deploy(ethers.parseEther("1000000"))
+  const fiftysixERC20 = await FiftysixERC20.deploy(
+    ethers.parseEther("1000000") // token supply
+  )
   console.log("FiftysixERC20 deployed to:", fiftysixERC20.target)
 
   const FiftysixERC721 = await ethers.getContractFactory("FiftysixERC721")
@@ -18,9 +20,13 @@ async function main() {
     "Fiftysix", // name
     "56", // symbol
     "1000000", // initialTokenSupply
-  )
-  
+  )  
   console.log("FiftysixDN404 deployed to:", fiftysixDN404.target)
+
+  const FiftysixERC918 = await ethers.getContractFactory("FiftysixERC918")
+  const fiftysixERC918 = await FiftysixERC918.deploy()
+  
+  console.log("FiftysixERC918 deployed to:", fiftysixERC918.target)
 }
 
 main().catch((error) => {

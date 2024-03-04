@@ -32,7 +32,7 @@ src
    ├─ FiftysixERC721 — An example non-fungible ERC-721 token
    ├─ FiftysixERC1155 — An example semi-fungible ERC-1155 token
    ├─ FiftysixERC6909 — A (newer) example semi-fungible ERC-6909 token
-   ├─ FiftysixERC918 — TBD
+   ├─ FiftysixERC918 — An example PoW minable, ERC-20 compatible Ethereum token
 
 ```
 
