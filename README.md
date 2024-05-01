@@ -229,6 +229,18 @@ List of resources and techniques for optimizing gas usage in Solidity smart cont
 
 https://github.com/0xisk/awesome-solidity-gas-optimization
 
+### (Backend) Coinbase Solidity Style Guide - coinbase
+
+Guide for Coinbase engineers developing EVM-based smart contracts. This guide also covers development and testing practices. Useful for developers of all skill levels.
+
+https://github.com/coinbase/solidity-style-guide
+
+### (Backend) Inline Yul Style Guide - jtriley-eth
+
+Nitty gritty guide for developing EVM-based smart contracts. This guide uses inline assembly, a dialect of Yul, when optimizing such contracts, so it's called an "Inline Yul Style Guide". Also covers development and testing practices.
+
+https://github.com/jtriley-eth/inline-yul-style-guide
+
 ## Cryptoeconomics
 
 ### Awesome Cryptoeconomics — jpantunes
